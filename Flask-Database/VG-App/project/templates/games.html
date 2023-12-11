@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block body %} 
+    <h1>Games</h1>
+
+    {% if games|length < 1 %}
+        <p>There are no games.</p>
+    {% else %}
+        <table class="table">
+            <tr>
+                <th>Game</th>
+                <th>Year</th>
+                <th>Rating</th>
+                <th>System</th>     
+            </tr>
+            {% for game in games %}
+                <tr>
+                    <td>{{ game["gameName"] }}</td>
+                    <td>{{ game["releaseYear"] }}</td>
+                    <td>{{ game["playerRating"] }}</td>
+                    <td>{{ game["consoleNames"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

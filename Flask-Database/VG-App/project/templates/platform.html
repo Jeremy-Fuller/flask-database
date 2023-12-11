@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %} 
+<h1 class="mb-4">Add/Update platform</h1>
+<form id="updatePlatform" action="{{form_action}}" method="post">
+    <div class="mb-3">
+        <label for="platformName" class=""form-label>Platform Name: </label>
+        <input type="text" class="form_control" name="platformName" value="{{platform['platformName']}}" required>
+    </div>
+
+    <button type="submit" class="btn btn-info" id="submitButton">Submit</button>
+</form>
+{% endblock %}

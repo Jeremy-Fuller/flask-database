@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %} 
+    <h1>Platforms</h1>
+    <a href="/platform" class="btn btn-dark">Add a new platform</a><br/>
+
+    {% if platforms|length < 1 %}
+        <p>There are no platforms.</p>
+    {% else %}
+        <table class="table">
+            <tr>
+                <th>Platform Name</th>    
+            </tr>
+            {% for platform in platforms %}
+                <tr>
+                    <td>{{ platform["platformName"] }}</td>
+                    <td>
+                        <a href="platform/{{platform['platformID']}}" class="btn btn-info">Update</a>&nbsp;&nbsp;
+                        <a href="platform/delete/{{platform['platformID']}}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
